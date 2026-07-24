@@ -10,7 +10,7 @@ import type { ValidationResult } from "../../types/validation.type.ts";
 interface Context {
   cwd: string;
   answers: UserAnswers;
-  validation?: ValidationResult;
+  validation?: ValidationResult; 
   templatePaths?: string[];
   finalPackageJson?: Record<string, unknown>;
 }
@@ -23,15 +23,6 @@ type Step = {
 const describeValidationFailures = (validation: ValidationResult): string[] => {
   const failures: string[] = [];
 
-  if (!validation.hasPackageJson) {
-    failures.push("No package.json found in the target directory.");
-  }
-  if (!validation.hasExpress) {
-    failures.push("Express is not installed in this project.");
-  }
-  if (!validation.hasTypeScript) {
-    failures.push("TypeScript is not installed in this project.");
-  }
   if (!validation.nodeVersionOk) {
     failures.push("Installed Node.js version does not meet the minimum required version.");
   }
@@ -79,26 +70,30 @@ const steps: Step[] = [
     },
   },
 
-  { 
-    name: "mergePackageJsons",
-    run: (ctx) => {
-      if (!ctx.templatePaths) {
-        throw new Error("templatePaths missing — collectTemplatePaths must run first.");
-      }
+  {
+  name: "mergePackageJsons",
+  run: (ctx) => {
+    if (!ctx.templatePaths) {
+      throw new Error("templatePaths missing - collectTemplatePaths must run first.");
+    }
 
-      const finalPackageJson: Record<string, unknown> = {};
+    const finalPackageJson: Record<string, unknown> = {
+      name: path.basename(ctx.cwd),
+      version: "1.0.0",
+      private: true,
+    };
 
-      for (const templateDir of ctx.templatePaths) {
-        const pkgPath = path.join(templateDir, "package.json");
-        if (!fs.existsSync(pkgPath)) continue;
+    for (const templateDir of ctx.templatePaths) {
+      const pkgPath = path.join(templateDir, "package.json");
+      if (!fs.existsSync(pkgPath)) continue;
 
-        const templatePkg = fs.readJsonSync(pkgPath);
-        mergeDeep(finalPackageJson, templatePkg);
-      }
+      const templatePkg = fs.readJsonSync(pkgPath);
+      mergeDeep(finalPackageJson, templatePkg);
+    }
 
-      return { ...ctx, finalPackageJson };
-    },
+    return { ...ctx, finalPackageJson };
   },
+},
 
   { 
     name: "writePackageJson",

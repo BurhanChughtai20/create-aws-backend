@@ -5,12 +5,12 @@
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "create-lambda-app": "./dist/bin/create-lambda-app.js"
+    "create-aws-backend": "./dist/bin/cli.js"
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "start": "node dist/bin/create-lambda-app.js",
+    "start": "node dist/bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1091.0",
     "express": "^5.2.1",
+    "fs-extra": "^11.4.0",
     "prompts": "^2.4.2"
   },
   "packageManager": "pnpm@11.15.1+sha512.81350b07e53c9538a02f1f2303b4290fa2d7be04e56e2a970c4cc4b417dc761de196edabd49d55c7dc9580db81007c44143e4e3d7e462b3000d23c255122d065",
@@ -29,7 +30,7 @@
     "typescript": "^5.7.0"
   },
   "files": [
-  "dist",
-  "templates"
-]
+    "dist",
+    "templates"
+  ]
 }

@@ -5,15 +5,13 @@ import type { UserAnswers } from '../../types/answer.type.ts';
 import type { AwsService } from '../../types/template.type.ts';
 
 export async function collectAnswers(): Promise<RawAnswers> {
-
     const response = await prompts<"aws" | "database">([
         AWS_QUESTION,
         DATABASE_QUESTION,
     ]);
 
-
     const rawAnswers: RawAnswers = {
-        aws: response.aws,
+        aws: response.aws ?? [],
         database: response.database,
     };
 
@@ -33,5 +31,4 @@ export function normalizeAnswers(raw: RawAnswers): UserAnswers {
         aws: normalizedAws,
         database: normalizedDatabase,
     }
-
 }
