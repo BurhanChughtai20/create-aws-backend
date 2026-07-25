@@ -1,6 +1,6 @@
 {
   "name": "create-aws-backend",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI to scaffold your Express + TypeScript backend in seconds — the folder structure, the middleware and even the database configuration (for DynamoDB and soon more!) is set up automatically. No need to rebuild your backend setup for every project.",
   "type": "module",
   "main": "dist/index.js",
