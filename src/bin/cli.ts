@@ -1,5 +1,6 @@
-import { getUserAnswers } from "../modules/answers/get-user-answers.js";
-import { executePipeline } from "../modules/pipeline/pipeline.js";
+import { getUserAnswers } from "../modules/answers/get-user-answers.ts";
+import { executePipeline } from "../modules/pipeline/pipeline.ts";
+
 
 async function main() {
   const answers = await getUserAnswers();
