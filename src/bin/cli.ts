@@ -4,7 +4,7 @@ import { executePipeline } from "../modules/pipeline/pipeline.ts";
 
 async function main() {
   const answers = await getUserAnswers();
-  executePipeline({
+  await executePipeline({
     cwd: process.cwd(),
     answers,
   });
