@@ -39,8 +39,16 @@
     "api-boilerplate",
     "backend-generator"
   ],
-  "author": "",
+  "author": "Muhammad Burhan Chughtai",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BurhanChughtai20/create-aws-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BurhanChughtai20/create-aws-backend/issues"
+  },
+  "homepage": "https://github.com/BurhanChughtai20/create-aws-backend#readme",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1091.0",
     "express": "^5.2.1",

@@ -1,3 +1,8 @@
+[![npm version](https://img.shields.io/npm/v/create-aws-backend)](https://www.npmjs.com/package/create-aws-backend)
+[![Downloads](https://img.shields.io/npm/dm/create-aws-backend)](https://www.npmjs.com/package/create-aws-backend)
+[![GitHub](https://img.shields.io/badge/GitHub-Source-181717?logo=github)](https://github.com/BurhanChughtai20/create-aws-backend)
+
+
 # create-aws-backend
  
 ### The Problem
